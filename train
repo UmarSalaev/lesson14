@@ -1,0 +1,83 @@
+package task4;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Scanner;
+
+/*
+ 	private String pointOfRoad;	
+	private int hour;
+	private int minutes;
+	private int numberOfTrain;
+ */
+public class Main3 {
+
+	public static void main(String[] args) {
+
+		List<Train> trains = new ArrayList<>();
+
+		trains.add(new Train("Минск", 15, 45, 9009));
+		trains.add(new Train("Бобруйск", 11, 44, 9209));
+		trains.add(new Train("Осиповичи", 22, 31, 2209));
+		trains.add(new Train("Киев", 9, 12, 3049));
+		trains.add(new Train("Киев", 19, 21, 1204));
+
+		System.out.println("До сортировки -----------------------------------------------\n");
+
+		print(trains);
+
+		System.out.println("\n После сортировки по номеру поезда -------------------------\n");
+
+		Comparator<Object> comparator = Comparator.comparing(obj -> ((Train) obj).getNumberOfTrain());
+		Collections.sort(trains, comparator);
+
+		print(trains);
+
+		System.out.println("\n После сортировки по алфавиту и сходству в направлении-------");
+
+		sortName(trains);
+
+		System.out.println("Для получения информации введите номер поезда\n");
+
+		Scanner sc = new Scanner(System.in);
+
+		int number = sc.nextInt();
+
+		for (int i = 0; i < trains.size(); i++) {
+			Train t = trains.get(i);
+
+			if (t.getNumberOfTrain() == number) {
+				String message = t.getPointOfRoad() + " " + t.getHour() + ":" + t.getMinutes() + " №"
+						+ t.getNumberOfTrain();
+				System.out.println(message);
+				System.out.println("------------------------------------------------------------");
+			}
+
+		}
+
+	}
+
+	public static void sortName(List<Train> trains) {
+
+		Comparator<Object> comparator = Comparator.comparing(obj -> ((Train) obj).getPointOfRoad())
+				.thenComparing(obj -> ((Train) obj).getHour());
+		Collections.sort(trains, comparator);
+
+		print(trains);
+		
+		System.out.println("\n------------------------------------------");
+	}
+
+	public static void print(List<Train> trains) {
+		for (int i = 0; i < trains.size(); i++) {
+			Train t = trains.get(i);
+			String message = t.getPointOfRoad() + " " + t.getHour() + ":" + t.getMinutes() + " №"
+					+ t.getNumberOfTrain();
+			System.out.println(message);
+		}
+	}
+
+}
