@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Arrays;
 
 /*public String name;
-	public String sername;
+	public String serName;
 	private int grade;
 	public int numberOfGroup;
 */
@@ -27,7 +27,7 @@ public class Main2 {
 
 		for (int i = 0; i < students.size(); i++) {
 			Student s = students.get(i);
-			String message = "Студент: " + s.getName() + " " + s.getSername() + " с оценкой " + s.getGrade()
+			String message = "Студент: " + s.getName() + " " + s.getSerName() + " с оценкой " + s.getGrade()
 					+ ", учиться в группе - " + s.getNumberOfGroup();
 			System.out.println(message);
 		}
@@ -38,7 +38,7 @@ public class Main2 {
 			Student s = students.get(i);
 			if (s.getGrade() >= 9) {
 				String message = "За отличный результат ученику из группы " + s.getNumberOfGroup() + " " + s.getName()
-						+ s.getSername() + " выдаётся грамота";
+						+ s.getSerName() + " выдаётся грамота";
 				System.out.println(message);
 
 			}
