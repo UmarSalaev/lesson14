@@ -10,9 +10,9 @@ public class Student {
 	public Student() {
 	}
 
-	public Student(String name, String sername, int grade, int numberOfGroup) {
+	public Student(String name, String serName, int grade, int numberOfGroup) {
 		this.name = name;
-		this.serName = sername;
+		this.serName = serName;
 		this.grade = grade;
 		this.numberOfGroup = numberOfGroup;
 	}
@@ -29,7 +29,7 @@ public class Student {
 		return serName;
 	}
 
-	public void setSername(String sername) {
+	public void setSername(String serName) {
 		this.serName = sername;
 	}
 
